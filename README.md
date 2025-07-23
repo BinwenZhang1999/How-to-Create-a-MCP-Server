@@ -1,6 +1,6 @@
 # How to Create a MCP Server
 
-This repository provides a comprehensive guide and implementation example for creating a Minecraft Protocol (MCP) server. Learn how to build your own Minecraft server implementation from scratch.
+This repository provides a comprehensive guide and implementation example for creating a Model Context Protocol (MCP) server. Learn how to build your own server that handles model context and provides efficient communication between AI models and clients.
 
 ## 📚 Table of Contents
 
@@ -13,47 +13,59 @@ This repository provides a comprehensive guide and implementation example for cr
 - [Contributing](#contributing)
 - [License](#license)
 
-## 🎮 Introduction
+## 🎯 Introduction
 
-This project aims to help developers understand and implement the Minecraft Protocol (MCP) by creating a custom server. The guide covers everything from basic networking to handling game mechanics.
+The Model Context Protocol (MCP) server is designed to handle efficient communication between AI models and clients, managing context windows, model states, and providing a standardized interface for model interactions. This project demonstrates how to implement such a server from scratch.
 
 ## ✨ Features
 
-- Basic server implementation
-- Protocol packet handling
-- Player authentication
-- World generation basics
-- Entity management
-- Block updates
-- Chat system
-- Basic game mechanics
+- Efficient context window management
+- Model state handling
+- Streaming responses
+- Request batching and queuing
+- Load balancing
+- Context compression
+- Token management
+- Error handling and recovery
+- Monitoring and metrics
+- Authentication and authorization
 
 ## 🔧 Prerequisites
 
 - Python 3.8 or higher
 - Basic understanding of:
-  - Networking protocols (TCP/IP)
-  - Python async programming
-  - Basic Minecraft mechanics
-  - JSON and NBT data formats
+  - AI/ML concepts
+  - Context windows
+  - RESTful APIs
+  - Async programming
+  - Websockets
+  - Token management
 
 ## 📁 Project Structure
 
 ```
 .
 ├── src/
-│   ├── network/         # Network handling
-│   ├── protocol/        # Protocol implementation
-│   ├── world/          # World generation and management
-│   ├── entity/         # Entity handling
-│   ├── auth/           # Authentication
-│   └── utils/          # Utility functions
-├── tests/              # Test cases
-├── docs/               # Documentation
-│   ├── protocol/       # Protocol documentation
-│   └── examples/       # Example implementations
-├── requirements.txt    # Project dependencies
-└── README.md          # This file
+│   ├── server/         # Core server implementation
+│   │   ├── main.py    # Server entry point
+│   │   └── config.py  # Server configuration
+│   ├── protocol/       # Protocol implementation
+│   │   ├── packet.py  # Packet definitions
+│   │   └── types.py   # Data types
+│   ├── context/        # Context management
+│   │   ├── window.py  # Context window handling
+│   │   └── state.py   # State management
+│   ├── models/         # Model integration
+│   │   ├── loader.py  # Model loading
+│   │   └── handler.py # Model request handling
+│   ├── auth/          # Authentication
+│   └── utils/         # Utility functions
+├── tests/             # Test cases
+├── docs/              # Documentation
+│   ├── protocol/      # Protocol documentation
+│   └── examples/      # Example implementations
+├── requirements.txt   # Project dependencies
+└── README.md         # This file
 ```
 
 ## 🚀 Getting Started
@@ -77,42 +89,48 @@ This project aims to help developers understand and implement the Minecraft Prot
 
 4. Run the example server:
    ```bash
-   python src/main.py
+   python src/server/main.py
    ```
 
 ## 📖 Implementation Guide
 
 The implementation is divided into several key components:
 
-1. **Network Layer**
-   - TCP server implementation
-   - Packet framing and compression
-   - Connection management
+1. **Protocol Layer**
+   - Packet structure and serialization
+   - Message types and formats
+   - Version management
+   - Compression
 
-2. **Protocol**
-   - Packet structures
-   - Protocol states (Handshaking, Status, Login, Play)
-   - Data types and serialization
+2. **Context Management**
+   - Context window tracking
+   - State persistence
+   - Memory management
+   - Context pruning
 
-3. **Authentication**
-   - Player authentication flow
-   - Session handling
-   - Encryption
+3. **Model Integration**
+   - Model loading and unloading
+   - Request routing
+   - Response streaming
+   - Error handling
 
-4. **World Management**
-   - Chunk data structure
-   - World generation
-   - Block updates
+4. **Authentication & Authorization**
+   - Token validation
+   - Rate limiting
+   - Access control
+   - API keys
 
-5. **Entity System**
-   - Entity tracking
-   - Movement and physics
-   - Player entities
+5. **Monitoring & Metrics**
+   - Performance tracking
+   - Usage statistics
+   - Error logging
+   - Health checks
 
-6. **Game Mechanics**
-   - Inventory management
-   - Player interactions
-   - Game rules
+6. **Scaling & Load Balancing**
+   - Request distribution
+   - Load monitoring
+   - Resource allocation
+   - Queue management
 
 ## 👥 Contributing
 
